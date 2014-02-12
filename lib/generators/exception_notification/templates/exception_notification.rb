@@ -44,6 +44,12 @@ ExceptionNotification.configure do |config|
   #   :room_name => 'my_room'
   # }
 
+  # Slack notifier sends notifications to your Slack channel. Requires 'httparty' gem.
+  # config.add_notifier :slack, {
+  #   :team => 'my_team',
+  #   :token => 'my_token'
+  # }
+
   # Webhook notifier sends notifications over HTTP protocol. Requires 'httparty' gem.
   # config.add_notifier :webhook, {
   #   :url => 'http://example.com:5555/hubot/path',

@@ -387,6 +387,56 @@ Message will appear from this nickname. Default : 'Exception'.
 
 For all options & possible values see [Hipchat API](https://www.hipchat.com/docs/api/method/rooms/message).
 
+### Slack notifier
+
+This notifier sends notifications to a Slack channel.
+
+#### Usage
+
+Just add the [HTTParty](https://github.com/jnunemaker/httparty) gem to your `Gemfile`:
+
+```ruby
+gem 'httparty'
+```
+
+To configure it, you need to set the `team` and `token` options, like this:
+
+```ruby
+Whatever::Application.config.middleware.use ExceptionNotification::Rack,
+  :slack => {
+    :team => 'my_team',
+    :token => 'my_token'
+  }
+```
+
+#### Options
+
+##### team
+
+*String, required*
+
+Your team name at Slack.
+
+##### token
+
+*String, required*
+
+API token to allow access to your Slack account.
+
+##### channel
+
+*String, optional*
+
+Slack channel where the notifications will be published.
+
+##### username
+
+*String, optional*
+
+Message will appear from this username. Default : 'Exception'.
+
+For all options & possible values see [Slack Webhooks](https://my_team.slack.com/services/new/incoming-webhook).
+
 ### Webhook notifier
 
 This notifier ships notifications over the HTTP protocol.
